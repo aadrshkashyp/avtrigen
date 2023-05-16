@@ -41,8 +41,8 @@ Avtrigen is an Avatar Generator built with Node.js and React. It creates unique,
 3. To start the server and client, run:
 
    ```bash
-   npm start  // in frontend folder
-   node src/app.js // in backend folder
+   npm start          //in frontend folder
+   node src/app.js   //in backend folder
    ```
 
    The app backend will run on `localhost:6700`.
