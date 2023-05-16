@@ -25,26 +25,27 @@ Avtrigen is an Avatar Generator built with Node.js and React. It creates unique,
 1. Clone this repository. You will need `node` and `npm` installed globally on your machine.
 
    ```bash
-   git clone https://github.com/<your-github-username>/avtrigen
+   git clone https://github.com/aadrshkashyp/avtrigen
    cd avtrigen
    ```
 
-2. Install dependencies in both the root project directory and the client directory:
+2. Install dependencies in both the root backend directory and the frontend directory:
 
    ```bash
+   cd backend
    npm install
-   cd client
+   cd frontend
    npm install
-   cd ..
    ```
 
 3. To start the server and client, run:
 
    ```bash
-   npm run dev
+   npm start  // in frontend folder
+   node src/app.js // in backend folder
    ```
 
-   The app will run on `localhost:3000` for the React app and `localhost:5000` for the API.
+   The app backend will run on `localhost:6700`.
 
 ## 🖼️ Screenshots
 
