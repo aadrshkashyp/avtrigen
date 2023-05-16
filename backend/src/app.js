@@ -8,8 +8,8 @@ app.use(cors());
 
 app.use("/avatar", avatarRoutes);
 
-app.listen(6500, () => {
-  console.log("Server running on port 6500");
+app.listen(6700, () => {
+  console.log("Server running on port 6700");
 });
 
 module.exports = app;

@@ -51,14 +51,38 @@ const Button = styled.button`
   }
 `;
 
+const DownloadLink = styled.a`
+  display: block;
+  margin-top: 1em;
+  text-decoration: none;
+  color: #333;
+`;
+
+const UrlBox = styled.div`
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 10px #aaaaaa, -5px -5px 10px #ffffff;
+  color: #333;
+  font-size: 1em;
+  width: ${(props) => props.size}px;
+  word-break: break-all;
+`;
+
 const Avatar = ({ size }) => {
   const [avatar, setAvatar] = useState(null);
+  const [avatarUrl, setAvatarUrl] = useState(null);
 
   const fetchAvatar = async () => {
-    const response = await axios.get(`http://localhost:6500/avatar/${size}`, {
+    const response = await axios.get(`http://localhost:6700/avatar/${size}`, {
       responseType: "text",
     });
-    setAvatar(`data:image/svg+xml;utf8,${encodeURIComponent(response.data)}`);
+    const avatarData = `data:image/svg+xml;utf8,${encodeURIComponent(
+      response.data
+    )}`;
+    setAvatar(avatarData);
+    setAvatarUrl(`http://localhost:6700/avatar/${size}`);
   };
 
   useEffect(() => {
@@ -73,6 +97,12 @@ const Avatar = ({ size }) => {
           <StyledAvatar src={avatar} alt="Generated avatar" size={size} />
         )}
         <Button onClick={fetchAvatar}>Generate new avatar</Button>
+        {avatar && (
+          <DownloadLink href={avatar} download="avatar.svg">
+            Download avatar
+          </DownloadLink>
+        )}
+        {avatarUrl && <UrlBox size={size}>{avatarUrl}</UrlBox>}
       </Card>
     </Container>
   );
